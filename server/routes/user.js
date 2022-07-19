@@ -26,5 +26,8 @@ router.put("/:id",async(req,res)=>{
             res.status(401).json("Not Allowed")
         }
 })
+router.get("/:id",async(req,res)=>{
+  
+})
 
 module.exports=router;

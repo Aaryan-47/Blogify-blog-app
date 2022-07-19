@@ -18,13 +18,15 @@ router.post("/login",async(req,res)=>{
     }
 })
 router.post("/register",async(req,res)=>{
+    console.log(req.body)
     try{
         const salt=await bcrypt.genSalt(10)
         const hash=await bcrypt.hash(req.body.password,salt)
     const newUser= new Users({
         username:req.body.username,
         email:req.body.email,
-        password:hash
+        password:hash,
+        profile:req.body.profile
     });
     const user=newUser.save();
     res.status(200).json(user);
@@ -34,4 +36,17 @@ router.post("/register",async(req,res)=>{
     }
 
 });
+
+router.get("/",async(req,res)=>{
+   const usern=req.query.name;
+   try{
+   const details=await Users.find({username:usern});
+   //console.log(details)
+   res.status(200).json(details)
+   }
+   catch(err)
+   {
+    res.status(400).json(err);
+   }
+})
 module.exports=router;

@@ -10,7 +10,7 @@ import {Context} from "../context/Context.js";
 function Home()
 {
   const {user,logged}=react.useContext(Context);
-  console.log(user)
+  console.log(user.username)
   console.log(logged)
   const [blogs,setblogs]=react.useState([]);
   const loc=useLocation()

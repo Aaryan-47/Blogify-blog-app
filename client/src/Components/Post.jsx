@@ -22,7 +22,7 @@ export default function Post({detail}) {
           </span>
         </div>
         <span className="postTitle">
-          <Link to={`/blogs/${detail._id}`} className="link">
+          <Link to={`/blogs/${detail.username}+${detail._id}`} className="link">
             {detail.title}
           </Link>
         </span>

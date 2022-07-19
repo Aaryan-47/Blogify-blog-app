@@ -2,6 +2,7 @@ import React from 'react';
 import '../styles/navbar.css'
 import {Link} from 'react-router-dom';
 import {Context} from "../context/Context.js";
+const PF = "http://localhost:5000/pictures/"
 function show1()
 {
  const links=document.querySelector('.links')
@@ -15,7 +16,7 @@ function show2()
 }
 function Navbar()
 {
-  const {logged,setlogged,setuser}=React.useContext(Context);
+  const {logged,user,setlogged,setuser}=React.useContext(Context);
   const handleLogout = () => {
     setlogged(false);
     setuser('');
@@ -23,7 +24,7 @@ function Navbar()
     return (
         <>
          
-      <nav>
+      <nav className="navbar sticky-top navbar-light">
         <div className="nav-center">
         <div className="nav-header">
           <div className="cont1">
@@ -67,12 +68,8 @@ function Navbar()
             <li>
                 <Link to="/write">CREATE</Link>
             </li>
-            <li>
-                <button onClick={handleLogout}>{logged&&"LOGOUT"}</button>
-            </li>
-            <li>
-              <Link to="settings">{logged&&<i className="fas fa-cog" id="icon"></i>}</Link>
-            </li>
+          
+           
             <li>
                 <Link to="/login">{!logged&&"LOGIN"}</Link>
             </li>
@@ -82,32 +79,12 @@ function Navbar()
     
         </ul>
         <ul className="social-icons">
-          
-          <li>
-            <a href="https://www.twitter.com">
-              <i class="fab fa-facebook"></i>
-            </a>
-          </li>
-          <li>
-            <a href="https://www.twitter.com">
-              <i class="fab fa-twitter"></i>
-            </a>
-          </li>
-          <li>
-            <a href="https://www.twitter.com">
-              <i class="fab fa-behance"></i>
-            </a>
-          </li>
-          <li>
-            <a href="https://www.twitter.com">
-              <i class="fab fa-linkedin"></i>
-            </a>
-          </li>
-          <li>
-            <a href="https://www.twitter.com">
-              <i class="fab fa-sketch"></i>
-            </a>
-          </li>
+        <li>
+              <Link to="/settings">{logged&&<img  className="navImage"src={PF+user.profile}></img>}</Link>
+            </li>
+            <li>
+                <button onClick={handleLogout}>{logged&&"LOGOUT"}</button>
+            </li>
         </ul>
         </div>
 

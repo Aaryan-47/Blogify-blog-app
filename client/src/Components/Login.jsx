@@ -7,7 +7,7 @@ function Login()
 {
   const [username,setusername]=react.useState('');
   const [password,setpassword]=react.useState('');
-  const { user,setuser,logged,setlogged} = react.useContext(Context);
+  const { user,setuser,logged,setlogged,photo,setphoto} = react.useContext(Context);
   console.log(user)
   const handle=async (e)=>{
    e.preventDefault();
@@ -18,7 +18,8 @@ function Login()
       password
     });
     setlogged(true)
-    setuser(username);
+    setuser(res.data);
+    setphoto()
     console.log(user);
     console.log(logged)
     logged&&window.location.replace('/write')

@@ -15,22 +15,30 @@ const router=express.Router()
  })
 
  router.put('/:id',async(req,res)=>{
+  console.log(req.params.id);
+  const post=await Blogs.findById(req.params.id);
+  //console.log(post)
     try{
       const post=await Blogs.findById(req.params.id);
       if(post.username===req.body.username)
       {
         try{
-          const updatedPost=Blogs.findByIdAndUpdate(req.params.id,{$set:req.body},{new:true});
+          const updatedPost=await Blogs.findByIdAndUpdate(req.params.id,{$set:req.body},{new:true});
           res.status(200).json(updatedPost);
+          console.log(updatedPost)
         }
         catch(err){
-        res.status(404).json("Not Allowed");
+        res.status(400).json("Not Allowed");
         }
+      }
+      else
+      {
+        res.status(401).json("You can only update your blog");
       }
     }
     catch(err)
     {
-        res.status(404).json("Not allowed")
+        res.status(404).json("Maa Chuda")
     }
  })
  router.delete('/:id',async(req,res)=>{
@@ -56,6 +64,7 @@ const router=express.Router()
  router.get('/',async(req,res)=>{
     try{
     const user=req.query.user
+    console.log(user);
     const category=req.query.category
     let blogs;
     if(user)
@@ -72,6 +81,7 @@ const router=express.Router()
     {
      blogs=await Blogs.find()
     }
+    console.log(blogs);
     res.status(200).json(blogs)
 }
 catch(err)

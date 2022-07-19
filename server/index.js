@@ -3,6 +3,7 @@ const bodyParser=require('body-parser');
 const mongoose=require('mongoose');
 const dotenv=require('dotenv')
 
+const commentRoute=require('./routes/comments.js');
 const authRoute=require('./routes/authenciate.js');
 const blogRoute=require('./routes/blog.js');
 const userRoute =require('./routes/user.js');
@@ -36,7 +37,7 @@ app.use("/users",userRoute)
 app.use("/authenciate",authRoute)
 app.use('/blogs',blogRoute)
 app.use('/category',catRoute)
-
+app.use('/comments',commentRoute);
 app.listen(5000,()=>{
     console.log("We are listening")
 })

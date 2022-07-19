@@ -14,7 +14,7 @@ function Create()
   {
     e.preventDefault();
     const postN={
-      username:user,
+      username:user.username,
       title:title,
       description:desc,
     };

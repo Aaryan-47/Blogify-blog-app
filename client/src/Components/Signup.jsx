@@ -9,8 +9,34 @@ function Signup()
   const [username,setusername]=useState('')
   const [password,setpassword]=useState('');
   const [email,setemail]=useState('');
+  const [profile,setprofile]=useState(null);
   const handle=async (e)=>{
    e.preventDefault();
+   if(profile)
+   {
+     const info=new FormData();
+     const fname=Date.now()+profile.name;
+     info.append("name",fname)
+     info.append("file",profile);
+     console.log(fname);
+     try{
+      await axios.post("/upload",info);
+     }
+     catch(err)
+     {
+      console.log(err);
+     }
+    
+     const res=await axios.post('/authenciate/register',{
+       username,
+       password,
+       email,
+       profile:fname
+     })
+    console.log(user);
+    res.data&&window.location.replace('/login');
+    }
+   else{
    try{
     const res=await axios.post('/authenciate/register',{
       username,
@@ -23,6 +49,7 @@ function Signup()
    catch{
 
    }
+  }
   }
   return(
     <div className="container-fluid">
@@ -42,7 +69,7 @@ function Signup()
         <label htmlFor="fileInput">
                 <i className="writeIcon fas fa-plus"></i>Upload Pic(optional)
               </label>
-        <input id="fileInput" type="file" style={{ display: "none" }} />
+        <input id="fileInput" type="file"  onChange={(e)=>setprofile(e.target.files[0])}/>
         <button class="button1">SignUp</button>
         <p>Already a User?<Link to="/login">Login</Link></p>
     </form>
