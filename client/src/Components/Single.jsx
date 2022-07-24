@@ -5,6 +5,7 @@ import axios from 'axios';
 import {Link} from 'react-router-dom';
 import {Context} from '../context/Context.js';
 import Navbar from './Navbar'
+import parse from 'html-react-parser';
 function Single()
 {
   const [blog,setblog]=react.useState([]);
@@ -52,7 +53,9 @@ function Single()
     console.log(title)
    }
   }
-  console.log(blog)
+  //console.log(blog)
+  console.log(usern)
+  console.log(user)
     return(
  <>
  <Navbar/>
@@ -73,7 +76,7 @@ function Single()
           />):(
         <h1 className="singlePostTitle">
           {blog.title}
-          {usern===user&&(
+          {usern===user.username&&(
           <div className="singlePostEdit">
             <i className="singlePostIcon far fa-edit"  onClick={() => setupdate(true)}></i>
             <i className="singlePostIcon far fa-trash-alt"></i>
@@ -95,7 +98,7 @@ function Single()
           </span>
         </div>
        {update ? (
-          <textarea
+          <textarea 
             className="singlePostDescInput"
             value={desc}
             onChange={(e) => setdesc(e.target.value)}
@@ -104,7 +107,7 @@ function Single()
           <p className="singlePostDesc">{blog.description}</p>
         )}
         {update && (
-          <button className="singlePostButton" onClick={hupdate}>
+          <button className="writeSubmit2" onClick={hupdate}>
             Update
           </button>
         )}

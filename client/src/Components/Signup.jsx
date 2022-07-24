@@ -1,6 +1,7 @@
 import {useState,useEffect,useContext} from 'react';
 import axios from 'axios';
 import '../styles/login.css'
+import Navbar from './Navbar';
 import {Link} from 'react-router-dom';
 import {Context} from "../context/Context.js";
 function Signup()
@@ -52,6 +53,8 @@ function Signup()
   }
   }
   return(
+    <>
+    <Navbar/>
     <div className="container-fluid">
     <div className="background">
         <div className="shape"></div>
@@ -74,6 +77,7 @@ function Signup()
         <p>Already a User?<Link to="/login">Login</Link></p>
     </form>
     </div>
+    </>
   )
 }
 

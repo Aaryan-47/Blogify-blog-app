@@ -34,14 +34,16 @@ export default function Profile()
     console.log(blogs)
     return(
         <>
+        
         <Navbar/>
-        <h2>User Profile Card</h2>
+        <div class="main">
+        <h2 class="pro">USER PROFILE CARD</h2>
   <div class="card">
     <div class="container">
-      <img src={i&&folder+userdetails[0].profile} style={{width:"40%" }} alt="" />
-      <h2 style={{textAlign:"center"}}>{i&&userdetails[0].username}</h2>
-      <p class="title">{i&&userdetails[0].email}</p>
-      <p>India University</p>
+      <img src={i&&folder+userdetails[0].profile} style={{width:"65%",height:"70%" }} alt="" />
+      <h2 style={{textAlign:"center"}}>Name: {i&&userdetails[0].username}</h2>
+      <p class="title">Email: {i&&userdetails[0].email}</p>
+      <p class="p">No of Blogs: {i&&blogs.length}</p>
       <div style={{margin:"24px 0"}}>
         <a href="#"><i class="fa fa-instagram"></i></a>
         <a href="#"><i class="fa fa-facebook"></i></a>
@@ -49,11 +51,13 @@ export default function Profile()
         <a href="#"><i class="fa fa-linkedin"></i></a>
 
       </div>
-      <p><button>Contact</button></p>
     </div>
   </div>
-  <h2>{i&&userdetails[0].username}'s Blogs</h2>
-    <AllPost blog={blogs}/>
+  <h2 class="pp">{i&&userdetails[0].username}'s Blogs</h2>
+  <AllPost blog={blogs}/>
+  </div>
+ 
+    
         </>
     )
 }

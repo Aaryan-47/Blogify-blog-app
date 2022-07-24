@@ -2,6 +2,7 @@ import React from 'react';
 import '../styles/navbar.css'
 import {Link} from 'react-router-dom';
 import {Context} from "../context/Context.js";
+import axios from 'axios';
 const PF = "http://localhost:5000/pictures/"
 function show1()
 {
@@ -23,7 +24,6 @@ function Navbar()
   };
     return (
         <>
-         
       <nav className="navbar sticky-top navbar-light">
         <div className="nav-center">
         <div className="nav-header">
@@ -36,16 +36,16 @@ function Navbar()
                 <p>CATEGORIES</p>
               </li>
             <li>
-                <a href="home.html">Life</a>
+                <Link to={`/?category=Movies`}>Movies</Link>
             </li>
             <li>
-                <a href="home.html">Music</a>
+            <Link to={`/?category=Economy`}>Economy</Link>
             </li>
             <li>
-                <a href="home.html">User</a>
+            <Link to={`/?category=Social`}>Social</Link>
             </li>
             <li>
-                <a href="home.html">Sports</a>
+            <Link to={`/?category=Life`}>Life</Link>
             </li>
   
         </ul>
@@ -83,7 +83,7 @@ function Navbar()
               <Link to="/settings">{logged&&<img  className="navImage"src={PF+user.profile}></img>}</Link>
             </li>
             <li>
-                <button onClick={handleLogout}>{logged&&"LOGOUT"}</button>
+                <button class="button3" onClick={handleLogout}>{logged&&"LOGOUT"}</button>
             </li>
         </ul>
         </div>

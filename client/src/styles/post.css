@@ -5,12 +5,13 @@
         display: flex;
         justify-content: center;
         flex-direction: column;
+        border:1px solid black;
       }
        
 }
 
   .postImg {
-    width: 385px;
+    width: 440px;
     height: 280px;
     object-fit: cover;
     border-radius: 7px;
@@ -63,3 +64,4 @@
     -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
   }
+

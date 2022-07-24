@@ -28,6 +28,7 @@ export default function Post({detail}) {
         </span>
         <hr />
         <span className="postDate">{new Date(detail.createdAt).toDateString()}</span>
+        <span className="postCat">{detail.categories[0]}</span>
       </div>
       <p className="postDesc">
         {detail.description}

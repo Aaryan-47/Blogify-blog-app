@@ -73,8 +73,8 @@ const router=express.Router()
     }
     else if(category)
     {
-       blogs=await Blogs.find({cat:{
-        $in:[catName]
+       blogs=await Blogs.find({categories:{
+        $in:[category]
       }})
     }
     else

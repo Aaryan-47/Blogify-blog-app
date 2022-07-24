@@ -1,21 +1,27 @@
-
+  .main{
+    display:flex;
+    flex-direction:column;
+    height:max-content;
+  }
   .card{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    max-width: 100px !important;
-
+    width:50%;
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
-    margin-left:100px;
+    
   }
   .container{
     background: #ffffff;
-
+   
+    width:450px;
+    height:500px;
   }
   .title{
     color: grey;
     font-size: 18px;
+    font-family: 'Edu TAS Beginner', cursive;
   }
-  button{
+  .button3{
     border: none;
     outline: 0;
     display: inline-block;
@@ -33,11 +39,29 @@
     font-size: 24px;
     
   }
+  .pp
+  {
+    font-size:50px;
+    color:rgb(89, 1, 1);
+  }
+  .pro
+  {
+    font-family: 'Edu TAS Beginner', cursive;
+    font-size:30px;
+    font-style: bold;
+    color:rgb(107, 4, 4)
+  }
   button:hover, a:hover{
     opacity: 0.7;
   }
 
   h2{
     text-align:center;
+    font-family: 'Edu TAS Beginner', cursive;
+  }
+  .p{
+    color: grey;
+    font-family: 'Edu TAS Beginner', cursive;
+    font-size: 18px;
   }
   

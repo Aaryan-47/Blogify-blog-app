@@ -26,7 +26,7 @@ function Login()
    }
    catch(err)
    {
-    <p>Wrong</p>
+    
    }
   };
   //console.log(user);

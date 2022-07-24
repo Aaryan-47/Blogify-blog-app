@@ -58,7 +58,17 @@ color: pink;
   }
 .nav-toggle2
 {
-  font-size: 1.5rem;
+  border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    color: white;
+    background-color: rgb(99, 97, 97);
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+  font-size: 1.7rem;
   color: red;
   transition: all 0.3s linear;;
   cursor: pointer;
@@ -101,9 +111,10 @@ color: pink;
 .links2 a:hover {
     padding: 0;
     background: transparent;
-    background: hsl(205, 86%, 81%);
+    background: hsl(205, 73%, 85%);
     color: hsl(205, 78%, 60%);
     padding-left: 1.5rem;
+    text-decoration: none;
   }
 .links a{
     margin:0 0.9rem;
@@ -111,7 +122,7 @@ color: pink;
     display: block;
     color:hsl(209, 49%, 59%);
     letter-spacing: 0.1rem;
-    font-size:1.3rem;
+    font-size:1.5rem;
     transition:all 0.3s linear
 }
 .links a:hover {

@@ -9,6 +9,7 @@ function Create()
   const [desc,setdesc]=React.useState("");
   const [file,setfile]=React.useState(null);
   const {user,logged}=React.useContext(Context);
+  const [success,setsuccess]=React.useState(false);
   console.log(logged);
   const handle=async(e)=>
   {
@@ -37,7 +38,7 @@ function Create()
      const res=await axios.post('/blogs',postN
     )
      console.log(res)
-     window.location.replace("/");
+     setsuccess(true)
     }
     catch(err)
     {
@@ -48,10 +49,12 @@ function Create()
        <>
        <Navbar/>
         <div className="write">
+          
           {file&&(<img
             className="writeImg"
             src={URL.createObjectURL(file)}
             alt=""/>)}
+            {success&&<h2  style={{ color: "green", textAlign: "center", marginTop: "20px" }}>Your post has been published</h2>}
           <form className="writeForm" onSubmit={handle}>
             <div className="writeFormGroup">
               <label htmlFor="fileInput">
@@ -69,7 +72,7 @@ function Create()
             <div className="writeFormGroup">
               <textarea
                 className="writeInput writeText"
-                placeholder="Share Your Story..."
+                placeholder="Start your blog...."
                 type="text"
                 autoFocus={true}
                 onChange={(e)=>setdesc(e.target.value)}

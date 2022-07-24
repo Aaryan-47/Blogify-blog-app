@@ -9,7 +9,7 @@
   
   .singlePostImg {
     width: 60%;
-
+    
     border-radius: 5px;
     object-fit: cover;
     margin-left:20%;
@@ -70,4 +70,31 @@
     border-radius: 50%;
     object-fit: cover;
     cursor: pointer;
+  }
+  .singlePostDescInput {
+    border: 1px solid black;
+    color: #666;
+    font-size: 18px;
+    width:90%;
+    height:30%;
+    line-height: 25px;
+  }
+  
+  .singlePostDescInput:focus {
+    outline: none;
+  }
+  .writeSubmit2 {
+    position: absolute;
+    top: 550px;
+    right: 30px;
+    color: white;
+    background-color: teal;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition:all 0.3s linear;
   }
